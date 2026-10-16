@@ -78,15 +78,58 @@
             int a = Convert.ToInt32(Console.ReadLine());
             Console.Write("Add meg a második intervallumot: ");
             int b = Convert.ToInt32(Console.ReadLine());
-            
+
             for (int i = 0; i < N; i++)
             {
                 tomb2[i] = r.Next(a, b);
             }
-            foreach (int item in tomb2)
+            for (int i = 0; i < N; i++)
             {
-                Console.WriteLine(item);
+                Console.WriteLine($"{i + 1}. {tomb2[i]}");
             }
+            char cselekves;
+            do
+            {
+                Console.Write("Mit szeretnél csinálni a tömb elemeivel (Növelni - a, Csökkenteni - b, Szorozni - c, Kilépni - d): ");
+                cselekves = Convert.ToChar(Console.ReadLine());
+                switch (cselekves)
+                {
+                    case 'a':
+                        Console.Write("Mennyivel akarod növelni az értékeket: ");
+                        int novel = Convert.ToInt32(Console.ReadLine());
+                        for (int i = 0; i < N; i++)
+                        {
+                            tomb2[i] += novel;
+                            Console.WriteLine($"{i + 1}. {tomb2[i]}");
+                        }
+                        break;
+                    case 'b':
+                        Console.Write("Mennyivel akarod csökkenteni az értékeket: ");
+                        int csokkent = Convert.ToInt32(Console.ReadLine());
+                        for (int i = 0; i < N; i++)
+                        {
+                            tomb2[i] -= csokkent;
+                            Console.WriteLine($"{i + 1}. {tomb2[i]}");
+                        }
+                        break;
+                    case 'c':
+                        Console.Write("Mennyivel akarod szorozni az értékeket: ");
+                        int szorzando = Convert.ToInt32(Console.ReadLine());
+                        for (int i = 0; i < N; i++)
+                        {
+                            tomb2[i] *= szorzando;
+                            Console.WriteLine($"{i + 1}. {tomb2[i]}");
+                        }
+                        break;
+                    case 'd':
+                        Console.WriteLine("Kiléptél!");
+                        break;
+                    default:
+                        Console.WriteLine("Nem megfelelő betű!");
+                        break;
+                }
+            }
+            while (cselekves != 'd');
         }
         static void Main(string[] args)
         {
