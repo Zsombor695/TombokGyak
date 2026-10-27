@@ -14,7 +14,7 @@
             foreach (int item in tomb1)
             {
                 Console.WriteLine(item);
-            }   
+            }
 
         }
         static void F02()
@@ -22,7 +22,7 @@
             int[] tomb2 = new int[15];
             for (int i = 0; i < tomb2.Length; i++)
             {
-                tomb2[i] = r.Next(1,3);
+                tomb2[i] = r.Next(1, 3);
             }
             foreach (int item in tomb2)
             {
@@ -111,31 +111,155 @@
         }
         static void F07()
         {
-
+            int[] tomb7 = { 1, 2, 3, 4, 5 };
+            Console.WriteLine("Merre szeretnéd léptetni az elemeket? (balra - b, jobbra - j): ");
+            char irany = Convert.ToChar(Console.ReadLine());
+            switch (irany)
+            {
+                case 'b':
+                    int elsoszam = tomb7[0];
+                    for (int i = 0; i < tomb7.Length - 1; i++)
+                    {
+                        tomb7[i] = tomb7[i + 1];
+                    }
+                    tomb7[tomb7.Length - 1] = elsoszam;
+                    break;
+                case 'j':
+                    int utolsoszam = tomb7[tomb7.Length - 1];
+                    for (int i = tomb7.Length - 1; i > 0; i--)
+                    {
+                        tomb7[i] = tomb7[i - 1];
+                    }
+                    tomb7[0] = utolsoszam;
+                    break;
+            }
+            foreach (int item in tomb7)
+            {
+                Console.WriteLine(item);
+            }
         }
         static void F08()
         {
-
+            int[] tomb8 = { 1, 2, 3, 4, 5 };
+            foreach (int item in tomb8)
+            {
+                Console.WriteLine(item);
+            }
+            Console.WriteLine("Tömb elemei megfordítva: ");
+            for (int i = tomb8.Length - 1; i >= 0; i--)
+            {
+                Console.WriteLine(tomb8[i]);
+            }
         }
         static void F09()
         {
-
+            double[] tomb9 = { 1.352, 2.5227, 3.9536, 4.11, 5.23653 };
+            double osszeg = 0;
+            foreach (double item in tomb9)
+            {
+                osszeg += item;
+            }
+            Console.WriteLine($"A tömb elemeinek összege: {osszeg}");
         }
         static void F10()
         {
-
+            double[] tomb9 = { 1.352, 2.5227, 3.9536, 4.11, 5.23653 };
+            foreach (double item in tomb9)
+            {
+                Console.WriteLine(item);
+            }
+            for (int i = 1; i < tomb9.Length; i += 2)
+            {
+                tomb9[i] += tomb9[i + 1];
+            }
+            Console.WriteLine("A tömb elemei utána: ");
+            foreach (double item in tomb9)
+            {
+                Console.WriteLine(item);
+            }
         }
         static void F11()
         {
+            double[] tomb9 = { 1.352, -2.5227, -3.9536, 4.11, -5.23653 };
+            int hanyszor = 0;
+            for (int i = 0; i < tomb9.Length; i++)
+            {
+                if (tomb9[i] >= 0 && tomb9[i + 1] < 0)
+                {
+                    hanyszor++;
+                }
+            }
+            Console.WriteLine($"A tömbben ennyiszer van pozitív szám után negatív szám: {hanyszor}");
+
 
         }
         static void F12()
         {
-
+            int[] tomb10 = new int[5];
+            for (int i = 0; i < tomb10.Length; i++)
+            {
+                int szam = r.Next(10, 100);
+                bool benneVan = false;
+                foreach (int item in tomb10)
+                {
+                    if (item == szam)
+                    {
+                        benneVan = true;
+                        break;
+                    }
+                }
+                if (!benneVan)
+                {
+                    tomb10[i] = szam;
+                }
+            }
+            Console.WriteLine("Ötös lottó számok: ");
+            foreach (int item in tomb10)
+            {
+                Console.Write($"{item} ");
+            }
         }
         static void F13()
         {
+            int[] tomb11 = new int[20];
+            for (int i = 0; i < tomb11.Length; i++)
+            {
+                tomb11[i] = r.Next(-100, 101);
+            }
+            foreach (int item in tomb11)
+            {
+                Console.Write($"{item}, ");
+            }
+            Console.WriteLine();
+            for (int i = 0; i < tomb11.Length; i++)
+            {
+                string elojel = "+";
+                if (tomb11[i] < 0)
+                {
+                    elojel = "-";
+                }
+                Console.WriteLine($"{i + 1}. | {tomb11[i]} | {elojel}");
+            }
+            Console.WriteLine();
+            for (int i = 2; i < tomb11.Length; i += 3)
+            {
+                tomb11[i] += 1;
+            }
+            foreach (int item in tomb11)
+            {
+                Console.Write($"{item}, ");
 
+            }
+            Console.WriteLine();
+            for (int i = 1; i < tomb11.Length; i += 2)
+            {
+                tomb11[i] -= tomb11[i - 1];
+            }
+            foreach (int item in tomb11)
+            {
+                Console.Write($"{item}, ");
+            }
+            Console.WriteLine();
         }
         static void F14()
         {
@@ -207,7 +331,7 @@
             //F04();
             //F05();
             //F06();
-            F07();
+            //F07();
             //F08();
             //F09();
             //F10();
