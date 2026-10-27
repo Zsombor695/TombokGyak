@@ -6,19 +6,62 @@
         static int[] tomb = new int[5];
         static void F01()
         {
+            int[] tomb1 = new int[10];
+            for (int i = 0; i < tomb1.Length; i++)
+            {
+                tomb1[i] = r.Next(5, 11);
+            }
+            foreach (int item in tomb1)
+            {
+                Console.WriteLine(item);
+            }   
 
         }
         static void F02()
         {
-
+            int[] tomb2 = new int[15];
+            for (int i = 0; i < tomb2.Length; i++)
+            {
+                tomb2[i] = r.Next(1,3);
+            }
+            foreach (int item in tomb2)
+            {
+                if (item == 1)
+                {
+                    Console.WriteLine("IGAZ");
+                }
+                else
+                {
+                    Console.WriteLine("HAMIS");
+                }
+            }
         }
         static void F03()
         {
-
+            double[] tomb3 = new double[20];
+            for (int i = 0; i < tomb3.Length; i++)
+            {
+                tomb3[i] = r.NextDouble() + r.Next(1, 21);
+            }
+            foreach (double item in tomb3)
+            {
+                Console.WriteLine(Math.Round(item, 2));
+            }
         }
         static void F04()
         {
-
+            double[] tomb4 = new double[25];
+            for (int i = 0; i < tomb4.Length; i++)
+            {
+                tomb4[i] = r.NextDouble() + r.Next(1, 21);
+            }
+            for (int i = 0; i < tomb4.Length; i++)
+            {
+                if (i % 2 != 0)
+                {
+                    Console.WriteLine(Math.Pow(tomb4[i], 2));
+                }
+            }
         }
         static void F05()
         {
@@ -31,15 +74,40 @@
             {
                 Console.WriteLine(item);
             }
-            Console.WriteLine("fForditott");
+            Console.WriteLine("Forditott");
             for (int i = tomb.Length - 1; i >= 0; i--)
             {
                 Console.WriteLine(tomb[i]);
             }
+            Console.WriteLine("Minden 2. elem:");
+            for (int i = 1; i < tomb.Length; i += 2)
+            {
+                Console.WriteLine(tomb[i]);
+            }
+            Console.WriteLine("1 - 5 ig adj meg egy számot: ");
+            int szam = Convert.ToInt32(Console.ReadLine());
+            Console.Write($"Megadott elem: {tomb[szam - 1]}");
         }
         static void F06()
         {
+            double[] tomb4 = new double[5];
+            for (int i = 0; i < tomb4.Length; i++)
+            {
+                tomb4[i] = r.NextDouble() + r.Next(1, 21);
+            }
+            double[] tomb5 = new double[5];
+            for (int i = 0; i < tomb5.Length; i++)
+            {
+                tomb5[i] = r.NextDouble() + r.Next(1, 21);
+            }
+            double[] tomb6 = new double[5];
 
+            Console.WriteLine("Megegyező indexű elemek összeadása: ");
+            for (int i = 0; i < tomb6.Length; i++)
+            {
+                tomb6[i] = tomb4[i] + tomb5[i];
+                Console.WriteLine($"{i + 1}. {tomb6[i]}");
+            }
         }
         static void F07()
         {
@@ -139,14 +207,14 @@
             //F04();
             //F05();
             //F06();
-            //F07();
+            F07();
             //F08();
             //F09();
             //F10();
             //F11();
             //F12();
             //F13();
-            F14();
+            //F14();
         }
     }
 }
